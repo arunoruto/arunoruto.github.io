@@ -20,7 +20,7 @@ disableTextInHeader = false
 
 # defaultBackgroundImage = "img/wavey.webp" # used as default for background images 
 defaultBackgroundImage = "img/space.jpg"
-# defaultFeaturedImage = "IMAGE.jpg" # used as default for featured images in all articles
+defaultFeaturedImage = "img/space.jpg" # used as default for featured images in all articles
 
 # highlightCurrentMenuArea = true
 # smartTOC = true
@@ -144,3 +144,7 @@ defaultBackgroundImage = "img/space.jpg"
 [dataImports]
   github = "arunoruto"
   orcid = "0000-0002-1631-7083"
+
+[params]
+  description = "Arnaut's personal website"
+  images = ['space.jpg']
