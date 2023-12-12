@@ -16,11 +16,11 @@ enableCodeCopy = false
 # robots = ""
 
 disableImageOptimization = false
-disableTextInHeader = false
+disableTextInHeader = true
 
 # defaultBackgroundImage = "img/wavey.webp" # used as default for background images 
-defaultBackgroundImage = "img/space.jpg"
-defaultFeaturedImage = "img/space.jpg" # used as default for featured images in all articles
+defaultBackgroundImage = "space.jpg"
+defaultFeaturedImage = "space.jpg" # used as default for featured images in all articles
 
 # highlightCurrentMenuArea = true
 # smartTOC = true
