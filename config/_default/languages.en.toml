@@ -11,14 +11,14 @@ title = "Arnaut"
   logo = "img/mirza-logo-black.png"
   secondaryLogo = "img/mirza-logo-white.png"
   description = "Arnaut's personal website"
-  images = ['space.jpg']
+  images = ['img/space.jpg']
   # copyright = "Copy, _right?_ :thinking_face:"
 
 [author]
   name = "Mirza Arnaut"
   # image = "https://arnaut.me/data/me3.jpg"
   image = "img/me3.jpg"
-  headline = "I'm only human"
+  headline = "Researcher. Climber. DIYer."
   bio = "A little bit about you"
   links = [
     { email = "mailto:mirza.arnaut@tu-dortmund.de" },
