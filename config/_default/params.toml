@@ -19,8 +19,8 @@ disableImageOptimization = false
 disableTextInHeader = true
 
 # defaultBackgroundImage = "img/wavey.webp" # used as default for background images 
-defaultBackgroundImage = "space.jpg"
-defaultFeaturedImage = "space.jpg" # used as default for featured images in all articles
+defaultBackgroundImage = "img/mirza-logo-black.png"
+defaultFeaturedImage = "img/mirza-logo-black.png" # used as default for featured images in all articles
 
 # highlightCurrentMenuArea = true
 # smartTOC = true
