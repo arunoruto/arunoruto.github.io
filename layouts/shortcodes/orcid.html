@@ -1,0 +1,46 @@
+{{ $id := .Get "id"}}
+{{ $url := (printf "https://pub.orcid.org/v3.0/%s/works" $id)}}
+{{ $data := "" }}
+{{ with resources.GetRemote (printf $url) }}
+{{ $data = .Content | transform.Unmarshal }}
+{{ else }}
+{{ errorf "Mardown Importer Shortcode - Unable to get remote resource" . }}
+{{ end }}
+
+{{ with $data.group }}
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Authors</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{ range . }}
+        {{ with index . "work-summary" }}
+
+        {{ $code := index . "-put-code" }}
+        {{ $work := "" }}
+        {{ with resources.GetRemote (printf "https://pub.orcid.org/v3.0/%s/work/%s" $id $code) }}
+        {{ $work = .Content | transform.Unmarshal }}
+        {{ else }}
+        {{ errorf "Mardown Importer Shortcode - Unable to get remote resource" . }}
+        {{ end }}
+        
+        {{ with $work }}
+        <tr>
+            {{ $work_url := index . "-url" }}
+            <td><a href={{ default "#" $work_url }} target="_blank">{{ .title.title }}</a></td>
+            <td>
+                {{ range index . "contributors" "contributor" }}
+                {{ index . "credit-name" }} ;
+                {{ end }}
+            </td>
+        </tr>
+        {{ end }}
+
+        {{ end }}
+        {{ end }}
+    </tbody>
+</table>
+{{ end }}

@@ -1,6 +1,6 @@
 ---
-title: "About"
-date: 2022-06-13T20:55:37+01:00
+title: "Resume"
+date: 2023-12-14T15:00:00+01:00
 draft: false
 
 showDate : false
@@ -17,8 +17,8 @@ showEdit: false
 showViews: false
 showLikes: false
 showAuthor: false
-layoutBackgroundHeaderSpace: true
+layoutBackgroundHeaderSpace: false
 
 ---
 
-{{< mdimporter url="https://raw.githubusercontent.com/arunoruto/arunoruto/main/README.md" >}}
+{{< jsonresume url="https://gist.githubusercontent.com/arunoruto/9d8bdf6e325077cff45b79e5f574e6e3/raw/" >}}

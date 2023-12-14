@@ -1,0 +1,95 @@
+{{ $url := .Get "url"}}
+{{ $data := "" }}
+{{ with resources.GetRemote (printf $url) }}
+{{ $data = .Content | transform.Unmarshal }}
+{{ else }}
+{{ errorf "Mardown Importer Shortcode - Unable to get remote resource" . }}
+{{ end }}
+
+{{ with $data.work }}
+<h2>Experience</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th>Role</th>
+            <th>Dates</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{ range . }}
+        <tr>
+            <td><a href="{{ .url }}" target="_blank">{{ .name }}</a></td>
+            <td>{{ .position }}</td>
+            
+            <td>
+                {{ time.Format "Jan 2006" .startDate }} - 
+                {{ with .endDate }}
+                {{ time.Format "Jan 2006" . }}
+                {{ else }}
+                Present
+                {{ end }}
+            </td>
+        </tr>
+        {{ end }}
+    </tbody>
+</table>
+{{ end }}
+
+{{ with $data.education }}
+<h2>Education</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Institution</th>
+            <th>Degree</th>
+            <th>Dates</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{ range . }}
+        <tr>
+            <td><a href="{{ .url }}" target="_blank">{{ .institution }}</a></td>
+            <td>{{ .studyType }} in {{ .area }}</td>
+            <td>
+                {{ time.Format "Jan 2006" .startDate }} - 
+                {{ with .endDate }}
+                {{ time.Format "Jan 2006" . }}
+                {{ else }}
+                Present
+                {{ end }}
+            </td>
+        </tr>
+        {{ end }}
+    </tbody>
+</table>
+{{ end }}
+
+{{ with $data.volunteer }}
+<h2>Volunteer</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Organization</th>
+            <th>Position</th>
+            <th>Dates</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{ range . }}
+        <tr>
+            <td><a href="{{ .url }}" target="_blank">{{ .organization }}</a></td>
+            <td>{{ .position }}</td>
+            <td>
+                {{ time.Format "Jan 2006" .startDate }} - 
+                {{ with .endDate }}
+                {{ time.Format "Jan 2006" . }}
+                {{ else }}
+                Present
+                {{ end }}
+            </td>
+        </tr>
+        {{ end }}
+    </tbody>
+</table>
+{{ end }}
