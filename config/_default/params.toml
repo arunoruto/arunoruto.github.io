@@ -141,6 +141,25 @@ defaultFeaturedImage = "img/mirza-logo-black.png" # used as default for featured
   # pinterest = ""
   # yandex = ""
 
+[comments]
+  # Comment provider:
+  provider = "giscus"
+
+  # Which page types are commentable?
+  commentable = {page = true, post = true, docs = false, project = false, publication = true, talk = false}
+
+  # Configuration of giscus
+  [comments.giscus]
+    repo = "arunoruto/blowfish" # Repo where the comments will live
+    repo_id = "R_kgDOK4maYw" # Repo where the comments will live
+    category = "Announcements" # Repo where the comments will live
+    category_id = "kwDOK4maY84CbuQC" # Repo where the comments will live
+    mapping = "pathname" # How Utterances will match comment to page
+    label = "comment" # Label applied to issue by utteranc.es bot
+    theme = "noborder_gray" # What theme to use
+    reactions_enabled = 1
+
+
 [dataImports]
   github = "arunoruto"
   orcid = "0000-0002-1631-7083"
