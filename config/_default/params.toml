@@ -19,7 +19,7 @@ disableImageOptimization = false
 disableTextInHeader = true
 
 # defaultBackgroundImage = "img/wavey.webp" # used as default for background images 
-defaultBackgroundImage = "img/space-blurry.jpg"
+defaultBackgroundImage = "img/circle-space-blur.jpg"
 defaultFeaturedImage = "img/mirza-logo-black.png" # used as default for featured images in all articles
 
 highlightCurrentMenuArea = true
@@ -37,8 +37,8 @@ highlightCurrentMenuArea = true
   showScrollToTop = true
 
 [homepage]
-  layout = "background" # valid options: page, profile, hero, card, background, custom
-  homepageImage = "img/space-blurry.jpg" # used in: hero, and card
+  layout = "hero" # valid options: page, profile, hero, card, background, custom
+  homepageImage = "img/circle-space-blur.jpg" # used in: hero, and card
   showRecent = false
   showRecentItems = 5
   showMoreLink = false
