@@ -20,7 +20,7 @@ disableTextInHeader = true
 
 # defaultBackgroundImage = "img/wavey.webp" # used as default for background images 
 defaultBackgroundImage = "img/circle-space-blur.jpg"
-defaultFeaturedImage = "img/mirza-logo-black.png" # used as default for featured images in all articles
+# defaultFeaturedImage = "img/mirza-logo-black.png" # used as default for featured images in all articles
 
 highlightCurrentMenuArea = true
 # smartTOC = true
