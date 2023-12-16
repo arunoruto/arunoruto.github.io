@@ -18,6 +18,7 @@ showViews: false
 showLikes: false
 showAuthor: false
 layoutBackgroundHeaderSpace: false
+# layout: "simple"
 
 ---
 

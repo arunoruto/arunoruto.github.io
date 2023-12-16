@@ -6,28 +6,120 @@
 {{ errorf "Mardown Importer Shortcode - Unable to get remote resource" . }}
 {{ end }}
 
+{{ $layout := default "" "" }}
+
+<style>
+    @media screen and (min-width: 0px) {    
+    
+        .customEntitityLogo {
+            background-color: aliceblue;
+            position: relative;
+            min-width: 60px;
+            width: 60px;
+            height: 60px;
+            margin: 0px;
+            margin-left: -8px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 5px;
+            object-fit: contain;
+            border-radius: 4%;
+        }
+    
+    }
+    
+    @media screen and (min-width: 700px) {
+        .customEntitityLogo {
+            background-color: aliceblue;
+            position: relative;
+            min-width: 80px;
+            width: 80px;
+            height: 80px;
+            margin: 0px;
+            margin-left: -8px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 8px;
+            object-fit: contain;
+            border-radius: 4%;
+        }
+    
+    }
+    
+    @media screen and (min-width: 1250px) {
+    
+        .customEntitityLogo {
+            background-color: aliceblue;
+            position: relative;
+            min-width: 100px;
+            width: 100px;
+            height: 100px;
+            margin: 0px;
+            margin-left: -8px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 8px;
+            object-fit: contain;
+            border-radius: 4%;
+        }
+    
+    }
+    
+    td {
+        vertical-align: middle !important;
+    }
+</style>
+
 {{ with $data.work }}
 <h2>Experience</h2>
 <table>
     <thead>
         <tr>
+            <th></th>
             <th>Company</th>
             <th>Role</th>
+            {{ if eq $layout "simple" }}
+            <th>Summary</th>
+            {{ end }}
             <th>Dates</th>
         </tr>
     </thead>
     <tbody>
         {{ range . }}
         <tr>
-            <td><a href="{{ .url }}" target="_blank">{{ .name }}</a></td>
-            <td>{{ .position }}</td>
-            
             <td>
+                {{ if fileExists (printf "content/resume/%s.png" (.name | anchorize)) }}
+                <img class="customEntitityLogo" src="{{ .name | anchorize }}.png" alt="{{ .name }}">
+                {{ else }}
+                {{ with .img }}
+                <img class="customEntitityLogo" src="{{ . }}" alt="{{ .name }}">
+                {{ end }}
+                {{ end }}
+            </td>
+            <td>
+                <a href="{{ .url }}" target="_blank">{{ .name }}</a>
+            </td>
+            <td>
+                <p>{{ .position }}</p>
+            </td>
+            {{ if eq $layout "simple" }}
+            <td>
+                {{ with .summary }}
+                <p>{{ . }}</p>
+                {{ end }}
+                {{ range .highlights }}
+                <span class="mr-2 rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400" style="white-space: nowrap;">
+                    {{ . }}
+                </span>
+                {{ end }}
+            </td>
+            {{ end }}
+            <td style="max-width:100%; white-space:nowrap;">
                 {{ time.Format "Jan 2006" .startDate }} - 
                 {{ with .endDate }}
                 {{ time.Format "Jan 2006" . }}
                 {{ else }}
-                Present
+                <i>Present</i>
                 {{ end }}
             </td>
         </tr>
@@ -41,6 +133,7 @@
 <table>
     <thead>
         <tr>
+            <th></th>
             <th>Institution</th>
             <th>Degree</th>
             <th>Dates</th>
@@ -49,14 +142,35 @@
     <tbody>
         {{ range . }}
         <tr>
-            <td><a href="{{ .url }}" target="_blank">{{ .institution }}</a></td>
-            <td>{{ .studyType }} in {{ .area }}</td>
             <td>
-                {{ time.Format "Jan 2006" .startDate }} - 
+                {{ if fileExists (printf "content/resume/%s.png" (.institution | anchorize)) }}
+                <img class="customEntitityLogo" src="{{ .institution | anchorize }}.png" alt="{{ .institution }}">
+                {{ else }}
+                {{ with .img }}
+                <img class="customEntitityLogo" src="{{ . }}" alt="{{ .institution }}">
+                {{ end }}
+                {{end}}
+            </td>
+            <td style="max-width:100%; white-space:nowrap;">
+                <a href="{{ .url }}" target="_blank">{{ .institution }}</a>
+            </td>
+            <td>
+                <p>{{ .studyType }} in {{ .area }}</p>
+                {{ if eq $layout "simple" }}
+                {{ range .courses }}
+                <span class="mr-2 rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400" style="white-space: nowrap;">
+                    {{ . }}
+                </span>
+                {{ end }}
+                {{ end }}
+            </td>
+            <td style="max-width:100%; white-space:nowrap;">
+                {{ time.Format "Jan 2006" .startDate }}
+                -
                 {{ with .endDate }}
                 {{ time.Format "Jan 2006" . }}
                 {{ else }}
-                Present
+                <i>Present</i>
                 {{ end }}
             </td>
         </tr>
@@ -70,8 +184,12 @@
 <table>
     <thead>
         <tr>
+            {{/*  <th></th>  */}}
             <th>Organization</th>
             <th>Position</th>
+            {{ if eq $layout "simple" }}
+            <th>Summary</th>
+            {{ end }}
             <th>Dates</th>
         </tr>
     </thead>
@@ -79,14 +197,52 @@
         {{ range . }}
         <tr>
             <td><a href="{{ .url }}" target="_blank">{{ .organization }}</a></td>
-            <td>{{ .position }}</td>
+            <td style="max-width:100%; white-space:nowrap;">{{ .position }}</td>
+            {{ if eq $layout "simple" }}
             <td>
+                {{ with .summary }}
+                <p>{{ . }}</p>
+                {{ end }}
+                {{ range .highlights }}
+                <span class="mr-2 rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400" style="white-space: nowrap;">
+                    {{ . }}
+                </span>
+                {{ end }}
+            </td>
+            {{ end }}
+            <td style="max-width:100%; white-space:nowrap;">
                 {{ time.Format "Jan 2006" .startDate }} - 
                 {{ with .endDate }}
                 {{ time.Format "Jan 2006" . }}
                 {{ else }}
-                Present
+                <i>Present</i>
                 {{ end }}
+            </td>
+        </tr>
+        {{ end }}
+    </tbody>
+</table>
+{{ end }}
+
+{{ with $data.awards }}
+<h2>Awards</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Awarder</th>
+            <th>Summary</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{ range . }}
+        <tr>
+            <td style="max-width:100%; white-space:nowrap;"><p>{{ .title }}</p></td>
+            <td>{{ .awarder }}</td>
+            <td>{{ .summary }}</td>
+            <td style="max-width:100%; white-space:nowrap;">
+                {{ time.Format "Jan 2006" .date }}
             </td>
         </tr>
         {{ end }}
