@@ -19,7 +19,7 @@ disableImageOptimization = false
 disableTextInHeader = true
 
 # defaultBackgroundImage = "img/wavey.webp" # used as default for background images 
-defaultBackgroundImage = "img/circle-space-blur.jpg"
+defaultBackgroundImage = "img/circle-space.jpg"
 # defaultFeaturedImage = "img/mirza-logo-black.png" # used as default for featured images in all articles
 
 highlightCurrentMenuArea = true
@@ -38,12 +38,12 @@ highlightCurrentMenuArea = true
 
 [homepage]
   layout = "hero" # valid options: page, profile, hero, card, background, custom
-  homepageImage = "img/circle-space-blur.jpg" # used in: hero, and card
-  showRecent = false
+  homepageImage = "img/circle-space.jpg" # used in: hero, and card
+  showRecent = true
   showRecentItems = 5
   showMoreLink = false
   showMoreLinkDest = "/posts"
-  cardView = false
+  cardView = true
   cardViewScreenWidth = false
   layoutBackgroundBlur = true # only used when layout equals background
 
@@ -57,17 +57,17 @@ highlightCurrentMenuArea = true
   heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
-  showBreadcrumbs = false
+  showBreadcrumbs = true
   showDraftLabel = true
-  showEdit = false
-  # editURL = "https://github.com/username/repo/"
+  showEdit = true
+  editURL = "https://github.com/arunoruto/blowfish/"
   editAppendPath = true
   seriesOpened = false
   showHeadingAnchors = true
   showPagination = true
   invertPagination = false
   showReadingTime = true
-  showTableOfContents = false
+  showTableOfContents = true
   # showRelatedContent = false
   # relatedContentLimit = 3
   showTaxonomies = false
@@ -97,7 +97,7 @@ highlightCurrentMenuArea = true
 [taxonomy]
   showTermCount = true
   showHero = false
-  # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
+  heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
   showBreadcrumbs = false
   showViews = false
   showLikes = false
@@ -159,8 +159,3 @@ highlightCurrentMenuArea = true
     label = "comment" # Label applied to issue by utteranc.es bot
     theme = "noborder_gray" # What theme to use
     reactions_enabled = 1
-
-
-[dataImports]
-  github = "arunoruto"
-  orcid = "0000-0002-1631-7083"

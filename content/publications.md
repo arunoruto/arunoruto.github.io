@@ -16,6 +16,7 @@ showViews: false
 showLikes: false
 showAuthor: false
 layoutBackgroundHeaderSpace: false
+# layout: "simple"
 ---
 
 {{< orcid id="0000-0002-1631-7083" >}}
