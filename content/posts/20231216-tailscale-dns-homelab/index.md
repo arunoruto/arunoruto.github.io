@@ -1,7 +1,7 @@
 ---
 title: "Using Tailscale DNS in your Homelab"
 date: 2023-12-16
-draft: false
+draft: true
 showLikes: false
 showViews: false
 ---
