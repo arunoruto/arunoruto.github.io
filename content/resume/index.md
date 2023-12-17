@@ -13,10 +13,11 @@ showTaxonomies : false
 showWordCount : false
 showSummary : false
 sharingLinks : false
+showAuthor: false
 showEdit: false
 showViews: false
 showLikes: false
-showAuthor: false
+showComments: false
 layoutBackgroundHeaderSpace: false
 # layout: "simple"
 

@@ -1,12 +1,17 @@
 {{ if site.Params.comments.giscus }}
+{{ $css := resources.Get "css/giscus.css" }}
+{{ $style := $css | toCSS  | minify | fingerprint  }}<br>
+{{$style.Permalink}}
+{{$style.RelPermalink}}
 <script src="https://giscus.app/client.js"
+        data-lang="en"
         data-repo="{{site.Params.comments.giscus.repo}}"
         data-repo-id="{{site.Params.comments.giscus.repo_id}}"
         data-category="{{site.Params.comments.giscus.category}}"
         data-category-id="{{site.Params.comments.giscus.category_id}}"
         data-mapping="{{site.Params.comments.giscus.mapping}}"
         data-reactions-enabled="{{site.Params.comments.giscus.reactions_enabled}}"
-        data-theme="{{site.Params.comments.giscus.theme}}"
+        data-theme="{{default site.Params.comments.giscus.theme $style.RelPermalink}}"
         crossorigin="anonymous"
         async>
 </script>
