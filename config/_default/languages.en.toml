@@ -63,5 +63,6 @@ title = "Arnaut"
     # { x-twitter = "https://twitter.com/username" },
     # { whatsapp = "https://wa.me/phone-number" },
     # { youtube = "https://youtube.com/username" },
+    # { xing = "https://www.xing.com/profile/Mirza_Arnaut" },
     # { ko-fi = "https://ko-fi.com/username" },
   ]
