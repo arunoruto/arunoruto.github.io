@@ -152,7 +152,7 @@ highlightCurrentMenuArea = true
 
   # Configuration of giscus
   [comments.giscus]
-    repo = "arunoruto/blowfish" # Repo where the comments will live
+    repo = "arunoruto/website" # Repo where the comments will live
     repo_id = "R_kgDOK4maYw" # Repo where the comments will live
     category = "Announcements" # Repo where the comments will live
     category_id = "DIC_kwDOK4maY84CbuQC" # Repo where the comments will live
