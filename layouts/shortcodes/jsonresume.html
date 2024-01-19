@@ -13,6 +13,10 @@
 {{ $layout := .Page.Params.layout | default "" }}
 
 <style>
+td.dates > p {
+display: inline-block;
+}
+
 @media screen and (min-width: 0px) {    
 
 .customEntitityLogo {
@@ -118,13 +122,13 @@ vertical-align: middle !important;
 {{ end }}
 </td>
 {{ end }}
-<td style="max-width:100%; white-space:nowrap;">
-<p style="display: inline-block;">{{ time.Format "Jan 2006" .startDate }}</p>
-<p style="display: inline-block;">&nbsp;-&nbsp;</p>
+<td class="dates" style="max-width:100%; white-space:nowrap;">
+<p>{{ time.Format "Jan 2006" .startDate }}</p>
+<p>&nbsp;-&nbsp;</p>
 {{ with .endDate }}
-<p style="display: inline-block;">{{ time.Format "Jan 2006" . }}</p>
+<p>{{ time.Format "Jan 2006" . }}</p>
 {{ else }}
-<p style="display: inline-block;"><i>Present</i></p>
+<p><i>Present</i></p>
 {{ end }}
 </td>
 </tr>
@@ -169,13 +173,13 @@ vertical-align: middle !important;
 {{ end }}
 {{ end }}
 </td>
-<td style="max-width:100%; white-space:nowrap;">
-<p style="display: inline-block;">{{ time.Format "Jan 2006" .startDate }}</p>
-<p style="display: inline-block;">&nbsp;-&nbsp;</p>
+<td class="dates" style="max-width:100%; white-space:nowrap;">
+<p>{{ time.Format "Jan 2006" .startDate }}</p>
+<p>&nbsp;-&nbsp;</p>
 {{ with .endDate }}
-<p style="display: inline-block;">{{ time.Format "Jan 2006" . }}</p>
+<p>{{ time.Format "Jan 2006" . }}</p>
 {{ else }}
-<p style="display: inline-block;"><i>Present</i></p>
+<p><i>Present</i></p>
 {{ end }}
 </td>
 </tr>
@@ -215,13 +219,13 @@ vertical-align: middle !important;
 {{ end }}
 </td>
 {{ end }}
-<td style="max-width:100%; white-space:nowrap;">
-<p style="display: inline-block;">{{ time.Format "Jan 2006" .startDate }}</p>
-<p style="display: inline-block;">&nbsp;-&nbsp;</p>
+<td class="dates" style="max-width:100%; white-space:nowrap;">
+<p>{{ time.Format "Jan 2006" .startDate }}</p>
+<p>&nbsp;-&nbsp;</p>
 {{ with .endDate }}
-<p style="display: inline-block;">{{ time.Format "Jan 2006" . }}</p>
+<p>{{ time.Format "Jan 2006" . }}</p>
 {{ else }}
-<p style="display: inline-block;"><i>Present</i></p>
+<p><i>Present</i></p>
 {{ end }}
 </td>
 </tr>
@@ -244,7 +248,7 @@ vertical-align: middle !important;
 <tbody>
 {{ range . }}
 <tr>
-<td style="max-width:100%; white-space:nowrap;"><p>{{ .title }}</p></td>
+<td class="dates" style="max-width:100%; white-space:nowrap;"><p>{{ .title }}</p></td>
 <td>{{ .awarder }}</td>
 <td>{{ .summary }}</td>
 <td style="max-width:100%; white-space:nowrap;">
