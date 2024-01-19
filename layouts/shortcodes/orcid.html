@@ -1,4 +1,12 @@
 {{ $id := .Get "id"}}
+{{ $name := "" }}
+{{ if isset .Params "name" }}
+{{ $name = .Get "name"}}
+{{/*  {{ else }}  */}}
+{{/*  {{ $name := index (split site.Author.name " ") (sub (len (split site.Author.name " ")) 1) }}  */}}
+{{ end }}
+
+{{/*  Fetch data  */}}
 {{ $url := (printf "https://pub.orcid.org/v3.0/%s/works" $id)}}
 {{ $data := "" }}
 {{ with resources.GetRemote (printf $url) }}
@@ -20,10 +28,28 @@
         content: "[" counter(item) "] ";
         counter-increment: item -1;
     }
+    .bib li > p, .names > p {
+        margin:0;
+        display:inline;
+    }
+    .names {
+        display:inline;
+    }
 </style>
 
-<ol class="bib">
+{{/*  Filter unique publication types from ORCID  */}}
+{{ $types := slice }}
 {{ range . }}
+{{ with index . "work-summary" }}
+{{ $types = $types | append .type }}
+{{ end }}
+{{ end }}
+{{ $types = $types | uniq | sort }}
+
+{{ range $headerType := $types }}
+## {{ (replace $headerType "-" " ") | title }}
+<ol class="bib">
+{{ range $data.group }}
 
 {{ with index . "work-summary" }}
 
@@ -36,20 +62,32 @@
 {{ end }}
 
 {{ with $work }}
-<li>
-    {{ with .url }}
-    <i><a href="" target="_blank">{{ $work.title.title }}.</a></i>
-    {{ else }}
-    <i>{{ .title.title }}.</i>
-    {{ end }}
-    {{ delimit (apply .contributors.contributor "index" "." "credit-name") "; " }}.
-    {{ with index . "journal-title" }}
-    {{ . }}, 
-    {{ end }}
-    {{ with index . "publication-date" }}
-    {{ .year }}.
-    {{ end }}
+{{ if eq .type $headerType }}
+<li style="max-width:100%;">
+{{ with .url }}
+<p><i><a href="{{ . }}" target="_blank">{{ $work.title.title }}.</a></i></p>
+{{ else }}
+<p><i>{{ .title.title }}.</i></p>
+{{ end }}
+
+<div class="names">
+{{ range (apply .contributors.contributor "index" "." "credit-name") }}
+{{ if and (ne $name "") (strings.Contains . $name) }}
+<p><u>{{ . }}</u>;</p>
+{{ else }}
+<p>{{ . }}.</p>
+{{ end }}
+{{ end }}
+</div>
+
+{{ with index . "journal-title" }}
+<p>{{ . }},</p>
+{{ end }}
+{{ with index . "publication-date" }}
+<p>{{ .year }}.</p>
+{{ end }}
 </li>
+{{ end }}
 {{ end }}
 
 {{ end }}
@@ -57,3 +95,5 @@
 
 {{ end }}
 </ol>
+
+{{ end }}
