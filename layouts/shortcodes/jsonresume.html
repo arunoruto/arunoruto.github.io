@@ -81,6 +81,7 @@ vertical-align: middle !important;
 {{ with $data.work }}
 ## Experience
 <table>
+
 <thead>
 <tr>
 <th></th>
@@ -92,8 +93,10 @@ vertical-align: middle !important;
 <th>Dates</th>
 </tr>
 </thead>
+
 <tbody>
 {{ range . }}
+
 <tr>
 <td>
 {{ if fileExists (printf "content/resume/%s.png" (.name | anchorize)) }}
@@ -104,12 +107,15 @@ vertical-align: middle !important;
 {{ end }}
 {{ end }}
 </td>
+
 <td>
 <a href="{{ .url }}" target="_blank">{{ .name }}</a>
 </td>
+
 <td>
 <p>{{ .position }}</p>
 </td>
+
 {{ if eq $layout "simple" }}
 <td>
 {{ with .summary }}
@@ -122,6 +128,7 @@ vertical-align: middle !important;
 {{ end }}
 </td>
 {{ end }}
+
 <td class="dates" style="max-width:100%; white-space:nowrap;">
 <p>{{ time.Format "Jan 2006" .startDate }}</p>
 <p>&nbsp;-&nbsp;</p>
@@ -131,6 +138,7 @@ vertical-align: middle !important;
 <p><i>Present</i></p>
 {{ end }}
 </td>
+
 </tr>
 {{ end }}
 </tbody>
@@ -140,6 +148,7 @@ vertical-align: middle !important;
 {{ with $data.education }}
 ## Education
 <table>
+
 <thead>
 <tr>
 <th></th>
@@ -148,8 +157,10 @@ vertical-align: middle !important;
 <th>Dates</th>
 </tr>
 </thead>
+
 <tbody>
 {{ range . }}
+
 <tr>
 <td>
 {{ if fileExists (printf "content/resume/%s.png" (.institution | anchorize)) }}
@@ -160,9 +171,11 @@ vertical-align: middle !important;
 {{ end }}
 {{end}}
 </td>
+
 <td style="max-width:100%; white-space:nowrap;">
 <a href="{{ .url }}" target="_blank">{{ .institution }}</a>
 </td>
+
 <td>
 <p>{{ .studyType }} in {{ .area }}</p>
 {{ if eq $layout "simple" }}
@@ -173,6 +186,7 @@ vertical-align: middle !important;
 {{ end }}
 {{ end }}
 </td>
+
 <td class="dates" style="max-width:100%; white-space:nowrap;">
 <p>{{ time.Format "Jan 2006" .startDate }}</p>
 <p>&nbsp;-&nbsp;</p>
@@ -182,15 +196,18 @@ vertical-align: middle !important;
 <p><i>Present</i></p>
 {{ end }}
 </td>
+
 </tr>
 {{ end }}
 </tbody>
+
 </table>
 {{ end }}
 
 {{ with $data.volunteer }}
 ## Volunteer
 <table>
+
 <thead>
 <tr>
 {{/*  <th></th>  */}}
@@ -202,11 +219,15 @@ vertical-align: middle !important;
 <th>Dates</th>
 </tr>
 </thead>
+
 <tbody>
 {{ range . }}
+
 <tr>
 <td><a href="{{ .url }}" target="_blank">{{ .organization }}</a></td>
+
 <td style="max-width:100%; white-space:nowrap;">{{ .position }}</td>
+
 {{ if eq $layout "simple" }}
 <td>
 {{ with .summary }}
@@ -219,6 +240,7 @@ vertical-align: middle !important;
 {{ end }}
 </td>
 {{ end }}
+
 <td class="dates" style="max-width:100%; white-space:nowrap;">
 <p>{{ time.Format "Jan 2006" .startDate }}</p>
 <p>&nbsp;-&nbsp;</p>
@@ -228,15 +250,18 @@ vertical-align: middle !important;
 <p><i>Present</i></p>
 {{ end }}
 </td>
+
 </tr>
 {{ end }}
 </tbody>
+
 </table>
 {{ end }}
 
 {{ with $data.awards }}
 ## Awards
 <table>
+
 <thead>
 <tr>
 <th>Title</th>
@@ -245,17 +270,24 @@ vertical-align: middle !important;
 <th>Date</th>
 </tr>
 </thead>
+
 <tbody>
 {{ range . }}
+
 <tr>
 <td class="dates" style="max-width:100%; white-space:nowrap;"><p>{{ .title }}</p></td>
+
 <td>{{ .awarder }}</td>
+
 <td>{{ .summary }}</td>
+
 <td style="max-width:100%; white-space:nowrap;">
 {{ time.Format "Jan 2006" .date }}
 </td>
+
 </tr>
 {{ end }}
 </tbody>
+
 </table>
 {{ end }}
