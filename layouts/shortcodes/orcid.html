@@ -71,11 +71,20 @@
 {{ end }}
 
 <div class="names">
-{{ range (apply .contributors.contributor "index" "." "credit-name") }}
-{{ if and (ne $name "") (strings.Contains . $name) }}
-<p><u>{{ . }}</u>;</p>
+{{ $authors := (apply .contributors.contributor "index" "." "credit-name") }}
+{{/*  Create paragraph for each author  */}}
+{{ range $index, $author := $authors }}
+{{/*  But if the item contains the name provided, then underline it  */}}
+{{ if and (ne $name "") (strings.Contains $author $name) }}
+<p><u>{{ . }}</u></p>
 {{ else }}
 <p>{{ . }}.</p>
+{{ end }}
+{{/*  Put a semicolon after each author, except the last one.  */}}
+{{ if eq $index (sub (len $authors) 1) }}
+<p>,</p>
+{{ else }}
+<p>;</p>
 {{ end }}
 {{ end }}
 </div>
