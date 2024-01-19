@@ -5,7 +5,7 @@ draft: false
 
 showDate : false
 showDateUpdated : false
-showHeadingAnchors : false
+showHeadingAnchors : true
 showPagination : false
 showReadingTime : false
 showTableOfContents : true
@@ -23,4 +23,4 @@ layoutBackgroundHeaderSpace: false
 
 ---
 
-{{< jsonresume url="https://gist.githubusercontent.com/arunoruto/9d8bdf6e325077cff45b79e5f574e6e3/raw/" >}}
+{{% jsonresume url="https://gist.githubusercontent.com/arunoruto/9d8bdf6e325077cff45b79e5f574e6e3/raw/" %}}
