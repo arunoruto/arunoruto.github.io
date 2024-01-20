@@ -8,11 +8,11 @@ title = "Arnaut"
   isoCode = "en"
   rtl = false
   dateFormat = "2 January 2006"
-  logo = "img/mirza-logo-black-small.png"
-  secondaryLogo = "img/mirza-logo-white-small.png"
+  logo = "img/mirza-logo-white-small.png"
+  secondaryLogo = "img/mirza-logo-black-small.png"
   description = "Arnaut's personal website"
   images = ['img/space.jpg']
-  # copyright = "Copy, _right?_ :thinking_face:"
+  copyright = "&copy; { year } [Mirza Arnaut](https://github.com/arunoruto/website)"
 
 [author]
   name = "Mirza Arnaut"
@@ -22,7 +22,7 @@ title = "Arnaut"
   bio = "Tinkering since 1996"
   links = [
     { email = "mailto:mirza.arnaut@tu-dortmund.de" },
-    # { link = "https://link-to-some-website.com/" },
+    { link = "https://bv.etit.tu-dortmund.de/professur/arbeitsgruppe/arnaut/" },
     # { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
     # { apple = "https://www.apple.com" },
     # { blogger = "https://username.blogspot.com/" },
