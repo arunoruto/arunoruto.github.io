@@ -41,7 +41,9 @@
 {{ $types := slice }}
 {{ range . }}
 {{ with index . "work-summary" }}
-{{ $types = $types | append .type }}
+{{ with index . "type" }}
+{{ $types = $types | append . }}
+{{ end }}
 {{ end }}
 {{ end }}
 {{ $types = $types | uniq | sort }}
