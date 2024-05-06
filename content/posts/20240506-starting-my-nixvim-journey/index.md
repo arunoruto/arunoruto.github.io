@@ -1,5 +1,5 @@
 ---
-title: "My NixVim Journey"
+title: "Starting My NixVim Journey"
 date: 2024-05-06T23:13:22+02:00
 draft: false
 description: "How I started using NixVim"
