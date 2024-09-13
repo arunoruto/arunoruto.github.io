@@ -18,22 +18,15 @@
 {{ with $data.group }}
 
 <style>
-    ol.bib {
-        counter-reset: item {{ add (len .) 1 }};
-    }
-    .bib li {
+    .bib {
         display: block;
     }
-    .bib li:before {
-        content: "[" counter(item) "] ";
-        counter-increment: item -1;
-    }
-    .bib li > p, .names > p {
+    .bib div > p, .names > p {
         margin:0;
-        display:inline;
+        display: inline;
     }
     .names {
-        display:inline;
+        display: inline;
     }
 </style>
 
@@ -50,7 +43,7 @@
 
 {{ range $headerType := $types }}
 ## {{ (replace $headerType "-" " ") | title }}
-<ol class="bib">
+<div class="bib">
 {{ range $data.group }}
 
 {{ with index . "work-summary" }}
@@ -65,7 +58,8 @@
 
 {{ with $work }}
 {{ if eq .type $headerType }}
-<li style="max-width:100%;">
+{{/*  Title of the work  */}}
+<div style="max-width:100%; margin-bottom: 10px;">
 {{ with .url }}
 <p><i><a href="{{ . }}" target="_blank">{{ $work.title.title }}.</a></i></p>
 {{ else }}
@@ -91,13 +85,15 @@
 {{ end }}
 </div>
 
+{{/*  Display journal title  */}}
 {{ with index . "journal-title" }}
 <p>{{ . }},</p>
 {{ end }}
+{{/*  Display publication date  */}}
 {{ with index . "publication-date" }}
 <p>{{ .year }}.</p>
 {{ end }}
-</li>
+</div>
 {{ end }}
 {{ end }}
 
@@ -105,6 +101,6 @@
 {{ end }}
 
 {{ end }}
-</ol>
+</div>
 
 {{ end }}
