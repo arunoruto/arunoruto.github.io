@@ -14,7 +14,7 @@ title = "Arnaut"
   images = ['img/circle-space.jpg']
   copyright = "&copy; { year } [Mirza Arnaut](https://github.com/arunoruto/website)"
 
-[author]
+[params.author]
   name = "Mirza Arnaut"
   # image = "https://arnaut.me/data/me3.jpg"
   image = "img/me-anime.jpg"
