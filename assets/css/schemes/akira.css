@@ -1,37 +1,38 @@
-/* Urban Red and Yellow Scheme */
+/* Akira-inspired scheme */
 :root {
-  --color-neutral: 255, 255, 255;
-  /* Dark Gray */
-  --color-neutral-50: 242, 244, 247;
-  --color-neutral-100: 224, 227, 233;
-  --color-neutral-200: 209, 213, 221;
-  --color-neutral-300: 176, 183, 195;
-  --color-neutral-400: 143, 150, 164;
-  --color-neutral-500: 110, 117, 133;
-  --color-neutral-600: 82, 88, 100;
-  --color-neutral-700: 63, 68, 78;
-  --color-neutral-800: 47, 50, 57;
-  --color-neutral-900: 31, 34, 40;
-  /* Red */
-  --color-primary-50: 255, 240, 242;
-  --color-primary-100: 255, 220, 223;
-  --color-primary-200: 255, 187, 193;
-  --color-primary-300: 255, 141, 150;
-  --color-primary-400: 255, 92, 104;
-  --color-primary-500: 255, 56, 68;
-  --color-primary-600: 232, 38, 50;
-  --color-primary-700: 203, 33, 44;
-  --color-primary-800: 174, 28, 37;
-  --color-primary-900: 143, 23, 30;
-  /* Yellow */
-  --color-secondary-50: 255, 251, 235;
-  --color-secondary-100: 255, 243, 204;
-  --color-secondary-200: 255, 230, 156;
-  --color-secondary-300: 255, 217, 107;
-  --color-secondary-400: 255, 204, 58;
-  --color-secondary-500: 255, 191, 0;
-  --color-secondary-600: 230, 172, 0;
-  --color-secondary-700: 205, 154, 0;
-  --color-secondary-800: 179, 135, 0;
-  --color-secondary-900: 153, 115, 0;
+  --color-neutral: 245, 245, 245; /* Light gray, reminiscent of city lights */
+  /* Grays and Neutrals */
+  --color-neutral-50: 245, 245, 245;
+  --color-neutral-100: 225, 225, 225;
+  --color-neutral-200: 200, 200, 200;
+  --color-neutral-300: 160, 160, 160;
+  --color-neutral-400: 120, 120, 120;
+  --color-neutral-500: 85, 85, 85;
+  --color-neutral-600: 55, 55, 55;
+  --color-neutral-700: 40, 40, 40;
+  --color-neutral-800: 25, 25, 25;
+  --color-neutral-900: 10, 10, 10; /* Deep black, like the city's shadows */
+  /* Red - Akira’s iconic red jacket */
+  --color-primary-50: 255, 230, 230;
+  --color-primary-100: 255, 200, 200;
+  --color-primary-200: 255, 150, 150;
+  --color-primary-300: 255, 80, 80;
+  --color-primary-400: 240, 50, 50;
+  --color-primary-500: 200, 0, 0;
+  --color-primary-600: 160, 0, 0;
+  --color-primary-700: 120, 0, 0;
+  --color-primary-800: 80, 0, 0;
+  --color-primary-900: 50, 0, 0; /* Dark red, evoking intensity and danger */
+  /* Blue - Neon lights and nighttime cityscape */
+  --color-secondary-50: 230, 245, 255;
+  --color-secondary-100: 200, 225, 255;
+  --color-secondary-200: 150, 200, 255;
+  --color-secondary-300: 100, 170, 255;
+  --color-secondary-400: 50, 140, 230;
+  --color-secondary-500: 20, 110, 200;
+  --color-secondary-600: 15, 85, 170;
+  --color-secondary-700: 10, 65, 130;
+  --color-secondary-800: 5, 45, 100;
+  --color-secondary-900: 2, 25, 70; /* Deep blue, like the shadows of Neo-Tokyo */
 }
+

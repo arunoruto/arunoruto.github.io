@@ -6,6 +6,10 @@
 # https://blowfish.page/docs/configuration/#theme-parameters
 
 colorScheme = "blowfish"
+# colorScheme = "catppuccin"
+# colorScheme = "gruvbox"
+# colorScheme = "akira"
+# colorScheme = "avocado"
 defaultAppearance = "dark" # valid options: light or dark
 autoSwitchAppearance = true
 
@@ -19,7 +23,8 @@ disableImageOptimization = false
 disableTextInHeader = true
 
 # defaultBackgroundImage = "img/wavey.webp" # used as default for background images 
-defaultBackgroundImage = "img/background/ripples.svg"
+# defaultBackgroundImage = "img/background/ripples.svg"
+defaultBackgroundImage = "img/background/boonies.png"
 # defaultFeaturedImage = "img/mirza-logo-black.png" # used as default for featured images in all articles
 
 highlightCurrentMenuArea = true
@@ -39,7 +44,8 @@ smartTOC = true
 [homepage]
   layout = "background" # valid options: page, profile, hero, card, background, custom
   # homepageImage = "img/circle-space.jpg" # used in: hero, and card
-  homepageImage = "/img/background/particles.svg"
+  # homepageImage = "/img/background/particles.svg"
+  homepageImage = "/img/background/boonies.png"
   showRecent = true
   showRecentItems = 6
   showMoreLink = true
